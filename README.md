@@ -1,11 +1,11 @@
-#Traveler API
+<h1>Traveler API</h1>
 Project Overview
 
 Traveler API is a RESTful web application built with .NET 9, ASP.NET Core, Entity Framework Core, and PostgreSQL.
 It provides functionality for managing travel plans and their associated locations.
 Each plan contains an ordered list of locations with budgets, notes, and version tracking to prevent concurrency conflicts during updates.
 
-#Key Features
+<h1>Key Features</h1>
 
 Full CRUD operations for Travel Plans and Locations
 
@@ -19,7 +19,7 @@ Integration tests using xUnit and Testcontainers
 
 Containerized environment with Docker Compose
 
-#Technologies Used
+<h1>Technologies Used</h1>
 
 .NET 9
 
