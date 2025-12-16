@@ -25,7 +25,7 @@ Containerized environment with Docker Compose
 
 ASP.NET Core Web API
 
-Entity Framework Core (PostgreSQL)
+Entity Framework Core (PostgreSQL) 9.x.x version
 
 Docker / Docker Compose
 
