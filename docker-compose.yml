@@ -91,8 +91,34 @@ services:
     depends_on:
       travelerdb:
         condition: service_healthy
+  
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: traveler_prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - traveler-api
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: traveler_grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
 
 
 volumes:
-  travelerdb_data:
-  travelerdb_replica_data:
+   travelerdb_data:
+   travelerdb_replica_data:
+   grafana_data:

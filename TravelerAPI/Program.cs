@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Prometheus;
 using TravelerAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,9 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMetricServer();
+app.UseHttpMetrics();
 
 app.MapControllers();
 app.UseExceptionHandler(options => { });
